@@ -41,17 +41,17 @@ echo "hostname,quarantined_at,reason" > data/actions_log.csv
 ```
 
 **Option A — your own client (`client.py`, included).** This is the MCP client/host for
-this assignment: it starts `server.py` over stdio, discovers its tools via MCP, converts
-their schemas for the Anthropic API, sends your goal to Claude, executes whatever tool
-calls Claude requests, feeds the results back, and loops until Claude gives a final
-answer. Requires an Anthropic API key:
+this assignment: it starts `server.py` over stdio, discovers tools via MCP, converts
+their schemas for the Gemini API, sends your goal to Gemini, executes whatever tool
+calls Gemini requests, feeds the results back, and loops until Gemini gives a final
+answer. Requires a Gemini API key:
 ```
-export ANTHROPIC_API_KEY=sk-ant-...
+export GEMINI_API_KEY=...
 python client.py "Which source IP has been hitting db01 with denied connections, and can you quarantine it?"
 ```
-It prints every tool call, its arguments, the raw result, and Claude's final answer — that
+It prints every tool call, its arguments, the raw result, and Gemini's final answer — that
 output *is* the demonstration trace, paste it straight into the sections below. Model:
-`claude-sonnet-4-6` (change `MODEL` in `client.py` if you use a different one).
+`gemini-3.8-flash` (change `MODEL` in `client.py` if you use a different one).
 
 **Option B — an existing host (e.g. Claude Desktop).** Copy
 `claude_desktop_config.example.json` into the host's MCP config, replace the placeholder
